@@ -1,5 +1,9 @@
-const sum = require("./utils");
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-const utils = require('./utils');
-console.log(utils);
-console.log(utils(2,1));
+emitter.on('messageLogged', function(){
+    console.log('Listener Called');
+})
+
+//Raise an event
+emitter.emit('messageLogged');
